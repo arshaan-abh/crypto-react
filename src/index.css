@@ -4,6 +4,10 @@ html, body, #root {
 }
 
 body {
+  background-image: url("bg.jpg");
+  /* todo compress bg.jpg */
+  background-size: cover;
+  background-position: center;
   margin: 0;
   font-family: 'Ysabeau Infant', sans-serif;
   -webkit-font-smoothing: antialiased;
