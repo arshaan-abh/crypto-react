@@ -10,10 +10,28 @@
     width: 25%;
     height: 100%;
     display: flex;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #dashboard-template .side-bar > * {
     flex-grow: 1;
+}
+
+.side-bar::-webkit-scrollbar {
+    width: 8px;
+    background-color: #ffcccc10;
+    backdrop-filter: blur(1rem);
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+    width: 8px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.side-bar::-webkit-scrollbar-button {
+    height: 4px
 }
 
 #dashboard-template .main-bar {
@@ -42,26 +60,305 @@
     flex-grow: 1;
 }
 
+#dashboard-template #menu-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    height: 3rem;
+    display: none;
+}
+
 /* Side Bar */
 
 #side-bar {
+    height: fit-content;
+    min-height: calc(100% - 4rem);
     padding: 2rem;
-    backdrop-filter: blur(1rem);
-    background-color: #ccccff10;
-    /* todo make background-color a little more red */
+    background-color: #ffcccc10;
+    backdrop-filter: blur(8px);
 }
 
 #side-bar .logo {
+    margin-bottom: 2rem;
     display: flex;
     align-items: center;
     text-transform: uppercase;
     font-size: 2rem;
-    font-family: 'Lilita One', cursive;
-    font-weight: 500;
+    font-weight: 900;
     color: white;
 }
 
 #side-bar .logo img {
     height: 3rem;
     margin-right: 2rem;
+}
+
+/* Side Bar Section */
+
+.side-bar-section {
+    margin-bottom: 2rem;
+}
+
+.side-bar-section::after {
+    content: "";
+    display: flex;
+    width: 100%;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #ccccff40;
+}
+
+.side-bar-section .title {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ccccff80;
+}
+
+.side-bar-section .title .expand-button {
+    width: 2rem;
+    height: 2rem;
+    border: 3px solid #ccccff40;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.side-bar-section .title .expand-button img {
+    width: 1rem;
+    transition: transform .5s;
+}
+
+.side-bar-section .title .expand-button.active img {
+    transform: rotate(180deg);
+}
+
+.side-bar-section .content {
+    overflow: hidden;
+    transition: height .5s;
+}
+
+.side-bar-section .content .state {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+}
+
+.side-bar-section .content .state::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-image: linear-gradient(#66ffff, #33cccc);
+}
+
+.side-bar-section .content .plain {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.side-bar-section .content .plain img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.side-bar-section .content .elevated {
+    padding: 1rem;
+    background-color: #ccccff10;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+    border: 3px solid #ccccff10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.side-bar-section .content .elevated img:first-of-type {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.side-bar-section .content .elevated img:last-of-type {
+    height: 3rem;
+    margin-left: auto;
+}
+
+.side-bar-section .content > *:last-child::after {
+    content: "";
+    display: flex;
+    height: 2rem;
+}
+
+.side-bar-section.last::after {
+    content: none;
+}
+
+/* Coin Widget */
+
+.coin-widget {
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: #ccccff20;
+    border: 3px solid #ccccff20;
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-widget .title {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.coin-widget .title img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.coin-widget .content {
+    padding: 0 1rem;
+    flex-grow: 1;
+    background-color: #17194a;
+    border: 3px solid rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.coin-widget .content .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.coin-widget .content .item .item-name {
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.coin-widget .content .item .item-name img {
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.coin-widget .content .item:nth-child(1) .item-description {
+    background-image: linear-gradient(#66ffff, #33cccc);
+    padding: .5rem;
+    border-radius: .5rem;
+    color: #17194a;
+    display: flex;
+    align-items: center;
+}
+
+.coin-widget .content .item:nth-child(1) .item-description img {
+    height: 2rem;
+}
+
+.coin-widget .content .item:nth-last-child(1) .item-description {
+    color: #ccccff80;
+}
+
+.coin-widget .content .border {
+    flex-grow: 0;
+    flex-shrink: 1;
+    content: "";
+    display: flex;
+    width: 100%;
+    height: 3px;
+    background-color: #ccccff20;
+    border-radius: 3px;
+}
+
+.coin-widget .content > *:last-of-type::after {
+    content: none;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 1500px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    html {
+        font-size: 16px;
+    }
+
+    #dashboard-template .side-bar {
+        position: absolute;
+        width: 50%;
+        transform: translateX(-100%);
+        transition: transform .5s;
+    }
+
+    #dashboard-template .side-bar.active {
+        transform: translateX(0);
+    }
+
+    #dashboard-template .main-bar {
+        width: 100%;
+    }
+
+    #dashboard-template #menu-button {
+        display: flex;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 16px;
+    }
+
+    #dashboard-template .side-bar {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    html {
+        font-size: 8px;
+    }
 }
