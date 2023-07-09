@@ -204,6 +204,10 @@
     height: 2rem;
 }
 
+.side-bar-section.last {
+    margin-bottom: 0;
+}
+
 .side-bar-section.last::after {
     content: none;
 }
@@ -294,6 +298,38 @@
 .coin-widget .content > *:last-of-type::after {
     content: none;
 }
+
+/* Main Bar Head */
+
+#main-bar-head {
+    padding: 2rem 4rem;
+    background-color: #ccccff30;
+    backdrop-filter: blur(8px);
+    display: flex;
+}
+
+/* Button */
+
+.button {
+    background-image: linear-gradient(#9999ff, #6666ff);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(0, 0, 0, .25) inset;
+    text-shadow: 0 1px rgba(0, 0, 0, .25);
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.button img {
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+/* todo add text-shadow to .button img */
 
 /* Responsive */
 
