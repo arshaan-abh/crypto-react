@@ -86,10 +86,14 @@
 
 #dashboard-template #menu-button {
     z-index: 999;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    height: 3rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: 3px solid #ccccff40;
+    height: 2rem;
+    background-color: #ffcccc10;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
     display: none;
 }
 
@@ -719,6 +723,10 @@
 
     #dashboard-template #menu-button {
         display: flex;
+    }
+
+    #side-bar .logo {
+        justify-content: flex-end;
     }
 
     #main-bar-body .header {
