@@ -26,7 +26,6 @@ const SmallProfile = forwardRef<HTMLDivElement>((props, ref) => {
             </div>
             <div className="img-container">
                 <img className="profile-picture" src={arshaan} alt="Arshaan"/>
-                <div className="points">1</div>
             </div>
         </div>
     )

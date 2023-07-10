@@ -5,6 +5,7 @@ import moon from "../assets/moon.svg";
 import pushPin from "../assets/push-pin.svg";
 import discord from "../assets/discord.svg";
 import twitter from "../assets/twitter.svg";
+import CardViewTemplate from "./card-view-template";
 
 type DetailParam = {
     title?: ReactNode
@@ -22,7 +23,10 @@ export default function MainBarBody() {
             setProfileHeight(profile.current.offsetHeight)
     }, [])
 
-    return <div id="main-bar-body">{header()}</div>;
+    return <div id="main-bar-body">
+        {header()}
+        <CardViewTemplate></CardViewTemplate>
+    </div>;
 
     function header() {
         return <div className="header-container">

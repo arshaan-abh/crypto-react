@@ -95,6 +95,7 @@
     top: 2rem;
     left: 2rem;
     display: none;
+    backdrop-filter: blur(16px);
 }
 
 /* Side Bar */
@@ -395,7 +396,6 @@
 #main-bar-body .header-image {
     width: calc(100% - 2rem);
     margin: 0 1rem;
-    height: 50%;
     object-fit: cover;
     border-radius: 2rem;
 }
@@ -475,7 +475,6 @@
 
 #main-bar-body .header .detail .detail-content {
     display: flex;
-    gap: 1rem;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
@@ -483,9 +482,109 @@
     color: #fff;
 }
 
+#main-bar-body .header .detail.last .detail-content {
+    gap: 1rem;
+}
+
 #main-bar-body .header .detail img:not(.button *) {
     height: 2rem;
     margin-right: .5rem;
+}
+
+/* Card View Template */
+
+/* todo fix margin-top */
+
+#card-view-template {
+    --gap: 2rem;
+    display: flex;
+    gap: var(--gap);
+}
+
+#card-view-template .left-bar {
+    width: 100%;
+}
+
+#card-view-template .right-bar {
+    width: 200%;
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+}
+
+#card-view-template .right-bar > *:nth-child(1) {
+    display: flex;
+    gap: var(--gap);
+}
+
+#card-view-template .right-bar > *:nth-child(1) > * {
+    width: 100%;
+}
+
+#card-view-template .right-bar > *:nth-child(2) {
+}
+
+/* Card View */
+
+.card-view {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffcccc10;
+    border-radius: 2rem;
+    overflow: hidden;
+    backdrop-filter: blur(16px);
+    border-top: 1px rgba(255, 255, 255, .1) solid;
+}
+
+.card-view .card-view-title {
+    background-color: rgba(0, 0, 0, .05);
+    padding: 2rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.card-view .card-view-content {
+    display: flex;
+    flex-direction: column;
+    border-top: #ccccff20 3px solid;
+    padding: 2rem;
+}
+
+.card-view .card-view-content .description {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ccccff80;
+}
+
+/* Tab Switch */
+
+.tab-switch .tab-switch-title-container {
+    background-color: #17194a;
+    height: 50px;
+    border-radius: 1rem;
+    border-width: 3px;
+    padding: .5rem;
+    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .25) inset;
+    display: flex;
+    gap: .5rem;
+}
+
+.tab-switch .tab-switch-title-container .tab-switch-title {
+    width: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccccff80;
+}
+
+.tab-switch .tab-switch-title-container .tab-switch-title.active {
+    border-radius: .75rem;
+    background-color: #ccccff20;
+    border: 3px solid #ccccff20;
+    color: white;
 }
 
 /* Button */
@@ -494,7 +593,6 @@
     padding: 1rem 2rem;
     border-radius: 1rem;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(0, 0, 0, .25) inset;
-    text-shadow: 0 1px rgba(0, 0, 0, .25);
     font-weight: 900;
     color: white;
     text-transform: uppercase;
@@ -519,8 +617,6 @@
 .button img {
     height: 2rem;
 }
-
-/* todo add text-shadow to .button img */
 
 /* Text Field */
 
@@ -562,7 +658,6 @@
     background-color: #ffcccc10;
     padding: 1rem;
     border-radius: 1rem;
-    text-shadow: 0 1px rgba(0, 0, 0, .25);
     font-family: 'Noto Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -644,13 +739,14 @@
 }
 
 .profile .profile-picture {
-    border-radius: 1rem;
-    border: 3px solid #6666ff80;
-    height: 3rem;
+    border-radius: 50%;
+    height: calc(3rem + 3px);
 }
 
 .profile.big .profile-picture {
     border-radius: 2rem;
+    box-shadow: none;
+    border: 3px solid #6666ff;
 }
 
 .profile.big .profile-picture {
@@ -664,11 +760,9 @@
     height: 1.5rem;
     color: white;
     font-weight: 500;
-    background-image: linear-gradient(#9999ff, #6666ff);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 -1px 0 rgba(0, 0, 0, .25) inset;
-    text-shadow: 0 1px rgba(0, 0, 0, .25);
+    background-color: #6666ff;
     border-radius: 1rem;
-    transform: translateY(calc(50%));
+    transform: translateY(calc(50% - (6px / 2)));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -687,6 +781,8 @@
 }
 
 /* Responsive */
+
+/* todo fix responsive issues in very small displays */
 
 @media screen and (max-width: 1500px) {
     html {
@@ -781,6 +877,18 @@
 
     #main-bar-body .header .detail.last .detail-content {
         gap: 1rem;
+    }
+
+    #card-view-template {
+        flex-direction: column;
+    }
+
+    #card-view-template .right-bar {
+        width: 100%;
+    }
+
+    #card-view-template .right-bar > *:nth-child(1) {
+        flex-direction: column;
     }
 }
 

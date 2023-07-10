@@ -59,12 +59,11 @@ export default function SideBarSection(
     }
 
     return <div className={"side-bar-section" + (isLast ? " last" : "")}>
-        {title !== undefined ? <div className="title">
+        <div className="title">
             {title}
-            {canMinimize ? <div
-                className={"expand-button" + (isOpen ? " active" : "")}
-                onClick={minimize}><img src={expand} alt="Expand"/></div> : ""}
-        </div> : ""}
+            {canMinimize ? <div className={"expand-button" + (isOpen ? " active" : "")} onClick={minimize}>
+                <img src={expand} alt="Expand"/></div> : ""}
+        </div>
         <AnimateHeight className="content" height={height} duration={500}>{
             items.map((item, index) => {
                 return style === SideBarSectionItemStyle.state ? state(item, index) : style === SideBarSectionItemStyle.plain ? plain(item, index) : elevated(item, index)

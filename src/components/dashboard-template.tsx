@@ -17,3 +17,5 @@ export default function DashboardTemplate({sideBar, mainBarHead, mainBarBody}: a
         <div id="menu-button" onClick={toggleMenu}><img src={menu} alt="Menu button"/></div>
     </div>
 }
+
+/* todo fix menu button position */
