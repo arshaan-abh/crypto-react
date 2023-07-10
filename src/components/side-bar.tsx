@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBarSection, {SideBarSectionItemStyle} from "./side-bar-section";
 import CoinWidget from './coin-widget';
+import MenuButtons from "./menu-buttons";
 import logo from "../assets/logo.svg";
 import home from "../assets/home.svg";
 import leaderboard from "../assets/leaderboard.svg";
@@ -15,6 +16,7 @@ export default function SideBar() {
         <div className="logo">
             <img src={logo} alt="logo"></img>Dashboard
         </div>
+        <MenuButtons direction="column" gap="short-gap"></MenuButtons>
         <SideBarSection style={SideBarSectionItemStyle.state}
                         items={[{text: "Connected"}, {text: "25 Players online"}]}></SideBarSection>
         <SideBarSection canMinimize={true} title="Dashboard" style={SideBarSectionItemStyle.plain}
