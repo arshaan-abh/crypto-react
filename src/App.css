@@ -1,3 +1,7 @@
+:root {
+    --padding-top: 0;
+}
+
 /* Dashboard Template */
 
 #dashboard-template {
@@ -444,6 +448,7 @@
 
 #main-bar-body .header .detail .detail-content {
     display: flex;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
@@ -550,6 +555,7 @@
 
 #profile {
     display: flex;
+    align-items: center;
 }
 
 #profile.big {
@@ -603,8 +609,12 @@
 
 #profile .profile-picture {
     border-radius: 1rem;
-    border: 3px solid #ccccff40;
+    border: 3px solid #6666ff80;
     height: 3rem;
+}
+
+#profile.big .profile-picture {
+    border-radius: 2rem;
 }
 
 #profile.big .profile-picture {
@@ -681,6 +691,11 @@
 
     #main-bar-body .header {
         flex-direction: column;
+        padding-top: calc(var(--padding-top) + 2rem);
+    }
+
+    #main-bar-body .header .detail.last .detail-content {
+        gap: 2rem;
     }
 
     #main-bar-body .header .left {
@@ -714,6 +729,10 @@
 
     #main-bar-body .header .border {
         margin: 0 2rem;
+    }
+
+    #main-bar-body .header .detail.last .detail-content {
+        gap: 1rem;
     }
 }
 
