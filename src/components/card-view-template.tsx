@@ -10,6 +10,7 @@ import chartIconOne from "../assets/chart-icon-1.svg";
 import chartIconTwo from "../assets/chart-icon-2.svg";
 import time from "../assets/time.svg";
 import bitcoin from "../assets/bitcoin.svg";
+import Table from "./table";
 
 export default function CardViewTemplate() {
     return <div id="card-view-template">
@@ -54,7 +55,7 @@ export default function CardViewTemplate() {
                     </div>
                 }></CardView>
             </div>
-            <CardView title="Game History" icon={time}></CardView>
+            <CardView title="Game History" icon={time} content={<Table></Table>}></CardView>
         </div>
     </div>
 
