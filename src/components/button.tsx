@@ -22,6 +22,10 @@ export default function Button(
         style = ButtonStyle.purple
     }: ButtonParam) {
     return <div className={"button" + (isSmall ? " small" : "") + ` ${style}`} style={{marginRight: marginRight}}>
-        <img src={icon} alt="Icon"/>{text}
+        {icon !== "" ? <>
+            <img src={icon} alt="Icon"/>{text}
+        </> : <>
+            <div style={{textAlign: "center", width: "100%"}}>{text}</div>
+        </>}
     </div>;
 }

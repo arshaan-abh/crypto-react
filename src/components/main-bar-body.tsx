@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useRef, useState} from 'react';
+import React, {ReactNode, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Button, {ButtonStyle} from "./button";
 import Profile from "./profile";
 import moon from "../assets/moon.svg";
@@ -24,14 +24,39 @@ export default function MainBarBody() {
     }, [])
 
     return <div id="main-bar-body">
-        {header()}
+        <Header></Header>
         <CardViewTemplate></CardViewTemplate>
     </div>;
 
-    function header() {
+    function useWindowSize() {
+        const [size, setSize] = useState([0, 0]);
+        useLayoutEffect(() => {
+            function updateSize() {
+                setSize([window.innerWidth, window.innerHeight]);
+            }
+
+            window.addEventListener('resize', updateSize);
+            updateSize();
+            return () => window.removeEventListener('resize', updateSize);
+        }, []);
+        return size;
+    }
+
+    function Header() {
+        const [windowWidth] = useWindowSize()
+        const [height, setHeight] = useState<number>(0)
+        const header = useRef<any>()
+
+        useEffect(() => {
+            if (header.current)
+                setHeight(header.current.offsetHeight)
+        }, [windowWidth])
+
         return <div className="header-container">
             <img className="header-image" src={moon} alt="Moon"/>
-            <div className="header" style={{"--padding-top": `${profileHeight / 2}px`} as React.CSSProperties}>
+            <div className="header"
+                 style={{"--padding-top": `${profileHeight / 2}px`, "--height": `${height}px`} as React.CSSProperties}
+                 ref={header}>
                 <div className="left">
                     <Detail title="Total Game" content="1953"></Detail>
                     <Detail title="Win" content="45%"></Detail>

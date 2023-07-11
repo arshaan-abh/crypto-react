@@ -1,5 +1,6 @@
 :root {
     --padding-top: 0;
+    --height: 0;
 }
 
 /* Dashboard Template */
@@ -141,6 +142,7 @@
 .side-bar-section .title {
     margin-bottom: 2rem;
     display: flex;
+    gap: 1rem;
     align-items: center;
     justify-content: space-between;
     font-size: 1.5rem;
@@ -246,7 +248,7 @@
 
 .coin-widget {
     aspect-ratio: 1;
-    border-radius: 1rem;
+    border-radius: 2rem;
     padding: 1rem;
     background-color: #ccccff20;
     border: 3px solid #ccccff20;
@@ -272,7 +274,6 @@
     padding: 0 1rem;
     flex-grow: 1;
     background-color: #17194a;
-    border: 3px solid rgba(0, 0, 0, .1);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -402,7 +403,8 @@
 
 #main-bar-body .header {
     position: relative;
-    transform: translateY(-50%);
+    margin-top: calc(var(--height) / 2 * -1);
+    margin-bottom: 2rem;
     border-radius: 2rem;
     width: 100%;
     background-color: #ffcccc10;
@@ -493,8 +495,6 @@
 
 /* Card View Template */
 
-/* todo fix margin-top */
-
 #card-view-template {
     --gap: 2rem;
     display: flex;
@@ -543,6 +543,18 @@
     color: white;
     text-transform: uppercase;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-view .card-view-title .main-icon {
+    margin-right: 1rem;
+    height: 2rem;
+}
+
+.card-view .card-view-title .dots {
+    margin-left: auto;
+    height: 2rem;
 }
 
 .card-view .card-view-content {
@@ -558,6 +570,67 @@
     color: #ccccff80;
 }
 
+.card-view .card-view-content .slider-title {
+    display: flex;
+}
+
+.card-view .card-view-content .slider-title .slider-title-img-container {
+    background-color: #17194a;
+    padding: .5rem;
+    border-radius: .5rem;
+    margin-right: 1rem;
+    display: flex;
+}
+
+.card-view .card-view-content .slider-title .slider-title-img-container img {
+    height: 3rem;
+    aspect-ratio: 1;
+}
+
+.card-view .card-view-content .slider-title .slider-title-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-view .card-view-content .slider-title .slider-title-text-container .slider-title-text {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.card-view .card-view-content .chart {
+    border-radius: 1rem;
+    background-color: #17194a;
+    margin-top: 1rem;
+}
+
+.card-view .card-view-content .border {
+    margin: 2rem 0;
+    height: 3px;
+    width: 100%;
+    background-color: #ccccff20;
+    border-radius: 3px;
+}
+
+.card-view .card-view-content .coin-info-title {
+    display: flex;
+    align-items: center;
+}
+
+.card-view .card-view-content .coin-info-title img {
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.card-view .card-view-content .coin-info-content {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
 /* Tab Switch */
 
 .tab-switch .tab-switch-title-container {
@@ -566,7 +639,6 @@
     border-radius: 1rem;
     border-width: 3px;
     padding: .5rem;
-    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .25) inset;
     display: flex;
     gap: .5rem;
 }
