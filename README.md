@@ -1,3 +1,7 @@
+https://github.com/arshaan-abh/crypto-react/assets/134227429/2c442043-63f9-402d-907e-0c81eaec82b6
+
+https://github.com/arshaan-abh/crypto-react/assets/134227429/84a3e61b-6133-4c23-a9cb-a959d06a77e7
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
